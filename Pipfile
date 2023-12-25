@@ -1,0 +1,25 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+marshmallow = "*"
+frozendict = "*"
+mypy-extensions = "*"
+pyyaml = "*"
+typing-extensions = "*"
+numpy = "*"
+sympy = "*"
+marshmallow-dataclass = "*"
+marshmallow-oneofschema = "*"
+lark = "*"
+typeguard = "*"
+fastecdsa = "*"
+ecdsa = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
+python_full_version = "3.12.1"

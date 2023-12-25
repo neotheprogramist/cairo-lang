@@ -130,7 +130,7 @@ class ValidatedDataclass:
                 continue
 
             typeguard.check_type(
-                argname=field.name, value=getattr(self, field.name), expected_type=field.type
+                value=getattr(self, field.name), expected_type=field.type
             )
 
 
