@@ -1,6 +1,8 @@
+import argparse
 import json
 import os
-from utils import parse_proof
+import sys
+from utils import parse_proof, SUPPORTED_LAYOUTS
 from starkware.cairo.lang.cairo_constants import DEFAULT_PRIME
 from starkware.cairo.lang.compiler.cairo_compile import compile_cairo_files
 from starkware.cairo.lang.compiler.program import Program
@@ -20,10 +22,24 @@ def get_program_for_layout(layout: str) -> Program:
 
 
 if __name__ == "__main__":
-    program = get_program_for_layout("starknet_with_keccak")
+    parser = argparse.ArgumentParser(
+        description="Process layout parameter.",
+        usage="main.py -l <layout> < path/to/proof.json"
+    )
+    parser.add_argument(
+        "-l", "--layout",
+        type=str,
+        choices=SUPPORTED_LAYOUTS,
+        help="Layout to be run with",
+        required=True,
+    )
 
-    with open("src/starkware/cairo/stark_verifier/air/example_proof.json", "r") as f:
-        proof_json = json.load(f)
+    args = parser.parse_args()
+
+    program_input = sys.stdin.read()
+    program = get_program_for_layout(args.layout)
+
+    proof_json = json.loads(program_input)
 
     result = parse_proof(identifiers=program.identifiers,
                          proof_json=proof_json)
