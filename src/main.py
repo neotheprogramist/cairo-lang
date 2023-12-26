@@ -27,5 +27,4 @@ if __name__ == "__main__":
 
     result = parse_proof(identifiers=program.identifiers,
                          proof_json=proof_json)
-    out = result
-    print(json.dumps(out, indent=4), flush=True)
+    print(result)
