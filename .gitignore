@@ -3,3 +3,5 @@ __pycache__/
 cairo-lang-*.zip
 /.vscode/
 Pipfile.lock
+resources/
+.venv/
