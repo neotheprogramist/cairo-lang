@@ -5,3 +5,6 @@ cairo-lang-*.zip
 Pipfile.lock
 resources/
 .venv/
+.eggs/
+build/
+cairo_lang.egg-info/
