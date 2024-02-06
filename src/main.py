@@ -40,6 +40,8 @@ if __name__ == "__main__":
     program = get_program_for_layout(args.layout)
 
     proof_json = json.loads(program_input)
+    if proof_json["public_input"]["layout"] == "recursive_large_output":
+        proof_json["public_input"]["layout"] == "recursive"
 
     result = parse_proof(identifiers=program.identifiers,
                          proof_json=proof_json)
